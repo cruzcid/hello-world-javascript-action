@@ -1,5 +1,8 @@
 on:
-  push
+  push:
+    branches:
+      - main
+      - ND-01
   pull_request:
     branches:
       - main
