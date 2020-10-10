@@ -1,5 +1,6 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
+const fs = require('fs');
 
 try {
   const nameToGreet = core.getInput('who-to-greet');
@@ -7,8 +8,16 @@ try {
   const time = (new Date()).toTimeString();
   core.setOutput("time", time);
 
-  const payload = JSON.stringify(github.context.payload, undefined, 2);
-  console.log(`The event payload: ${payload}`);
+  //const payload = JSON.stringify(github.context.payload, undefined, 2);
+  //console.log(`The event payload: ${payload}`);
+
+  fs.writeFile('FirstFileCreated', 'Brande es big', 'utf-8', (err) => {
+    if (err) {
+      throw err;
+    }
+
+    console.log('README update complete.');
+  });
 } catch (error) {
   core.setFailed(error.message);
 }

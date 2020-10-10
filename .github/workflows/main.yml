@@ -1,5 +1,7 @@
-on: [push]
-
+on:
+  pull_request:
+    branches:
+      - main
 jobs:
   hello_world_job:
     runs-on: ubuntu-latest
@@ -17,3 +19,12 @@ jobs:
       # Use the output from the `hello` step
       - name: Get the output time
         run: echo "The time was ${{ steps.hello.outputs.time }}"
+      # Commit changes
+      - name: Commit and push if changed
+        run: |-
+          git diff
+          git config --global user.email "readme-bot@example.com"
+          git config --global user.name "README-bot"
+          git add -A
+          git commit -m "Updated articles" || exit 0
+          git push
