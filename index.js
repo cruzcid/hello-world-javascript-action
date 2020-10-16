@@ -12,7 +12,7 @@ try {
   //const payload = JSON.stringify(github.context.payload, undefined, 2);
   //console.log(`The event payload: ${payload}`);
 
-  let prom = pullRequests(rip.context.repo.owner, rip.context.repo.repo);
+  let prom = pullRequests(github.context.repo.owner, github.context.repo.repo);
 
   prom.then(pulls =>{
     fs.writeFile('FirstFileCreated', pulls, 'utf-8', (err) => {
