@@ -29,8 +29,8 @@ try {
 }
 
 function pullRequests(repoOwner, repo){
-  let pr = new github.Github(token);
-  let resp = pr.pulls.list({
+  const octokit = new github.GitHub(token);
+  let resp = octokit.pulls.list({
     owner: repoOwner,
     repo: repo
   })["catch"](function (e) {
