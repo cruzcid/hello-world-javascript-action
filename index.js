@@ -29,7 +29,7 @@ try {
 }
 
 function pullRequests(repoOwner, repo){
-  let pr = github.Github(token);
+  let pr = new github.Github(token);
   let resp = pr.pulls.list({
     owner: repoOwner,
     repo: repo
