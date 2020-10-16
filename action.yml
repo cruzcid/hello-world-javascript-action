@@ -5,7 +5,7 @@ inputs:
     description: 'Who to greet'
     required: true
     default: 'World'
-  token: ${{secrets.GITHUB_TOKEN}}
+  token: # ${{secrets.GITHUB_TOKEN}}
     description: 'github token'
     required: true
     default: ''
