@@ -18,7 +18,7 @@ try {
   let prom = pullRequests(github.context.repo.owner, github.context.repo.repo);
 
   prom.then(pulls =>{
-    const pullz = pulls;
+    const pullz = JSON.stringify(pulls, undefined, 2);
     console.log(`Pulls: ${pullz}`);
     fs.writeFile('FirstFileCreated', pulls, 'utf-8', (err) => {
 
