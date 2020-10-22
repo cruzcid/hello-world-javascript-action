@@ -20,7 +20,7 @@ try {
   prom.then(pulls =>{
     const pullz = JSON.stringify(pulls, undefined, 2);
     console.log(`Pulls: ${pullz}`);
-    fs.writeFile('FirstFileCreated', pulls, 'utf-8', (err) => {
+    fs.writeFile('FirstFileCreated', pullz, 'utf-8', (err) => {
 
       if (err) {
         throw err;
