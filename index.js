@@ -11,30 +11,35 @@ try {
   const time = (new Date()).toTimeString();
   core.setOutput("time", time);
 
-
-  //const payload = JSON.stringify(github.context.payload, undefined, 2);
-  //console.log(`The event payload: ${payload}`);
-
   let prom = pullRequests(github.context.repo.owner, github.context.repo.repo);
 
-  prom.then(pulls =>{
-    const pullz = JSON.stringify(pulls, undefined, 2);
-    console.log(`Pulls: ${pullz}`);
-    fs.writeFile('FirstFileCreated', pullz, 'utf-8', (err) => {
+  prom.then(pullsList => {
+    const pullz = JSON.stringify(pullsList, undefined, 2);
 
+    fs.readFile('README.md', 'utf-8', (err, data) => {
       if (err) {
         throw err;
       }
-      console.log('README update complete.');
 
+      // Replace text using regex: "Contributors: ...replace... ![Thank"
+      const updatedMd = data.replace(/(?<=Contributors:\n)[\s\S]*(?=\!\[Thank)/gim, pullz);
+
+      // Write the new README
+      fs.writeFile('README.md', updatedMd, 'utf-8', (err) => {
+        if (err) {
+          throw err;
+        }
+        console.log('README update complete.');
+      });
     });
   });
 } catch (error) {
   core.setFailed(error.message);
 }
 
-function pullRequests(repoOwner, repo){
+function pullRequests(repoOwner, repo) {
   const octokit = new Octokit();
+
   let resp = octokit.pulls.list({
     owner: repoOwner,
     repo: repo
