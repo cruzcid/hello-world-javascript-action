@@ -20,7 +20,7 @@ try {
       if (err) {
         throw err;
       }
-
+      console.log("README.md data: ", data);
       // Replace text using regex: "Contributors: ...replace... ![Thank"
       const updatedMd = data.replace(/(?<=Contributors:\n)[\s\S]*(?=\!\[Thank)/gim, pullz);
 
