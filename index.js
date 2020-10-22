@@ -23,7 +23,8 @@ try {
       console.log("README.md data: ", data);
       // Replace text using regex: "Contributors: ...replace... ![Thank"
       const updatedMd = data.replace(/(?<=Contributors:\n)[\s\S]*(?=\!\[Thank)/gim, pullz);
-
+      console.log("...............................");
+      console.log("updatedMd: ", updatedMd);
       // Write the new README
       fs.writeFile('README.md', updatedMd, 'utf-8', (err) => {
         if (err) {
