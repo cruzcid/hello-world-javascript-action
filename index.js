@@ -14,7 +14,14 @@ try {
   let prom = pullRequests(github.context.repo.owner, github.context.repo.repo);
 
   prom.then(pullsList => {
-    const pullz = JSON.stringify(pullsList, undefined, 2);
+    // Go though the data.
+    let contributorsList = [];
+    for(let i = 0; i < pullsList.data.length; i++) {
+      contributorsList.push({ title: pullsList.data[i].title,
+                              base: pullsList.data[i].head.user.login});
+    }
+
+    const skillContributorList = JSON.stringify(contributorsList, undefined, 2);
 
     fs.readFile('README.md', 'utf-8', (err, data) => {
       if (err) {
@@ -22,7 +29,7 @@ try {
       }
       console.log("README.md data: ", data);
       // Replace text using regex: "Contributors: ...replace... ![Thank"
-      const updatedMd = data.replace(/(?<=Contributors:\n)[\s\S]*(?=\!\[Thank)/gim, pullz);
+      const updatedMd = data.replace(/(?<=Contributors:\n)[\s\S]*(?=\!\[Thank)/gim,  skillContributorList);
       console.log("...............................");
       console.log("updatedMd: ", updatedMd);
       // Write the new README
@@ -33,6 +40,7 @@ try {
         console.log('README update complete.');
       });
     });
+
   });
 } catch (error) {
   core.setFailed(error.message);
