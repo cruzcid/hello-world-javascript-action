@@ -25,11 +25,13 @@ with:
   {
     "title": "Add file from branch Actions-Test1-branchA-File1",
     "head_user_login": "cruzcid",
-    "ref": "Actions-Test1-branchA"
+    "head_ref": "Actions-Test1-branchA",
+    "base_ref": "Actions-Test1"
   },
   {
     "title": "ActionTestPr Branch 01",
     "head_user_login": "cruzcid",
-    "ref": "Actions-Test1"
+    "head_ref": "Actions-Test1",
+    "base_ref": "main"
   }
 ]![Thank you
