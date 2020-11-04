@@ -23,6 +23,10 @@ with:
  Contributors:
 [
   {
+    "title": "Add file from branch Actions-Test1-branchA-File1",
+    "base": "cruzcid"
+  },
+  {
     "title": "ActionTestPr Branch 01",
     "base": "cruzcid"
   }
