@@ -23,15 +23,10 @@ with:
  Contributors:
 [
   {
-    "title": "Add file from branch Actions-Test1-branchA-File1",
-    "head_user_login": "cruzcid",
-    "head_ref": "Actions-Test1-branchA",
-    "base_ref": "Actions-Test1"
-  },
-  {
     "title": "ActionTestPr Branch 01",
     "head_user_login": "cruzcid",
     "head_ref": "Actions-Test1",
-    "base_ref": "main"
+    "base_ref": "main",
+    "html_url": "https://github.com/cruzcid/hello-world-javascript-action/pull/3"
   }
 ]![Thank you
