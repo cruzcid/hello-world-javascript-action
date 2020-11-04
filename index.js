@@ -19,7 +19,8 @@ try {
     for(let i = 0; i < pullsList.data.length; i++) {
       contributorsList.push({ title: pullsList.data[i].title,
                               head_user_login: pullsList.data[i].head.user.login,
-                              ref: pullsList.data[i].head.ref
+                              head_ref: pullsList.data[i].head.ref,
+                              base_ref: pullsList.data[i].base.ref,
                             });
     }
 
