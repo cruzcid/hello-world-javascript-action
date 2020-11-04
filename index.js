@@ -17,11 +17,14 @@ try {
     // Go though the data.
     let contributorsList = [];
     for(let i = 0; i < pullsList.data.length; i++) {
-      contributorsList.push({ title: pullsList.data[i].title,
-                              head_user_login: pullsList.data[i].head.user.login,
-                              head_ref: pullsList.data[i].head.ref,
-                              base_ref: pullsList.data[i].base.ref,
-                            });
+      if ("main" === pullsList.data[i].base.ref) {
+        contributorsList.push({ title: pullsList.data[i].title,
+                                head_user_login: pullsList.data[i].head.user.login,
+                                head_ref: pullsList.data[i].head.ref,
+                                base_ref: pullsList.data[i].base.ref,
+                                html_url: pullsList.data[i].html_url
+                              });
+      }
     }
 
     const skillContributorList = JSON.stringify(contributorsList, undefined, 2);
