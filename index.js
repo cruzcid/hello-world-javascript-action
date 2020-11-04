@@ -18,7 +18,9 @@ try {
     let contributorsList = [];
     for(let i = 0; i < pullsList.data.length; i++) {
       contributorsList.push({ title: pullsList.data[i].title,
-                              base: pullsList.data[i].head.user.login});
+                              head.user.login: pullsList.data[i].head.user.login
+                              ref: pullsList.data[i].head.ref
+                            });
     }
 
     const skillContributorList = JSON.stringify(contributorsList, undefined, 2);
