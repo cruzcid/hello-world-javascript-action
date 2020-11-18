@@ -23,6 +23,13 @@ with:
  Contributors:
 [
   {
+    "title": "Dev-001: Change textFile",
+    "head_user_login": "cruzcid",
+    "head_ref": "dev-001",
+    "base_ref": "main",
+    "html_url": "https://github.com/cruzcid/hello-world-javascript-action/pull/5"
+  },
+  {
     "title": "ActionTestPr Branch 01",
     "head_user_login": "cruzcid",
     "head_ref": "Actions-Test1",
