@@ -9,7 +9,7 @@ inputs:
     description: 'github token'
     required: true
     default: ''
-  githubRef: # ${GITHUB_REF}
+  githubRef: # ${{GITHUB_REF}}
 outputs:
   time: # id of output
     description: 'The time we greeted you'
