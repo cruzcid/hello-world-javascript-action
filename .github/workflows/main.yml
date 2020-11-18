@@ -36,4 +36,4 @@ jobs:
           git config --global user.name "README-bot"
           git add -A
           git commit -m "Updated articles" || exit 0
-          git push
+          git push HEAD:${{ steps.extract_branch.outputs.branch }}
