@@ -23,6 +23,27 @@ with:
  Contributors:
 [
   {
+    "title": "Merge dev-004 into main",
+    "head_user_login": "cruzcid",
+    "head_ref": "dev-004",
+    "base_ref": "main",
+    "html_url": "https://github.com/cruzcid/hello-world-javascript-action/pull/8"
+  },
+  {
+    "title": "Merge dev-003 into main",
+    "head_user_login": "cruzcid",
+    "head_ref": "dev-003",
+    "base_ref": "main",
+    "html_url": "https://github.com/cruzcid/hello-world-javascript-action/pull/7"
+  },
+  {
+    "title": "Dev-002 merge to main.",
+    "head_user_login": "cruzcid",
+    "head_ref": "dev-002",
+    "base_ref": "main",
+    "html_url": "https://github.com/cruzcid/hello-world-javascript-action/pull/6"
+  },
+  {
     "title": "Dev-001: Change textFile",
     "head_user_login": "cruzcid",
     "head_ref": "dev-001",
