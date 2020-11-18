@@ -11,9 +11,6 @@ try {
   const time = (new Date()).toTimeString();
   core.setOutput("time", time);
 
-  const githubBranchName = core.getInput('github-head-branch-name');
-  console.log(`github-head-branch-name: ${githubBranchName}`);
-
   let prom = pullRequests(github.context.repo.owner, github.context.repo.repo);
 
   prom.then(pullsList => {
@@ -30,6 +27,8 @@ try {
       }
     }
 
+    console.log("head-branch-name: ->", contributorsList[0].head_ref);
+    core.setOutput("head-branch-name", contributorsList[0].head_ref);
     const skillContributorList = JSON.stringify(contributorsList, undefined, 2);
 
     fs.readFile('README.md', 'utf-8', (err, data) => {

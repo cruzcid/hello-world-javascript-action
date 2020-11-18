@@ -15,10 +15,6 @@ jobs:
       # you must check out the repository
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Extract branch name
-        shell: bash
-        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF})"
-        id: extract_branch
       - name: Hello world action step
         uses: ./ # Uses an action in the root directory
         id: hello
@@ -36,4 +32,4 @@ jobs:
           git config --global user.name "README-bot"
           git add -A
           git commit -m "Updated articles" || exit 0
-          git push HEAD:${{ steps.extract_branch.outputs.branch }}
+          git push HEAD:${{ steps.hello.outputs.head-branch-name }}
