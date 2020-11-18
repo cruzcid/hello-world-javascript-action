@@ -12,7 +12,7 @@ try {
   core.setOutput("time", time);
 
   const githubBranchName = core.getInput('github-head-branch-name');
-  console.log(`github-head-branch-name: ${githubBranchName}`);
+  console.log('github-head-branch-name: ', githubBranchName);
 
   let prom = pullRequests(github.context.repo.owner, github.context.repo.repo);
 
