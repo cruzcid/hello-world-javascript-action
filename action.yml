@@ -9,7 +9,9 @@ inputs:
     description: 'github token'
     required: true
     default: ''
-  githubRef: # ${{GITHUB_REF}}
+  github-head-branch-name: # ${GITHUB_REF#refs/heads/}
+    description: 'Github name of Head branch'
+    required: true
 outputs:
   time: # id of output
     description: 'The time we greeted you'

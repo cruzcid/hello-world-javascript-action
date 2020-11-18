@@ -15,12 +15,17 @@ jobs:
       # you must check out the repository
       - name: Checkout
         uses: actions/checkout@v2
+      - name: Extract branch name
+        shell: bash
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        id: extract_branch
       - name: Hello world action step
         uses: ./ # Uses an action in the root directory
         id: hello
         with:
           who-to-greet: 'Mona the Octocat'
           token: ${{secrets.GITHUB_TOKEN}}
+          github-head-branch-name: ${{ steps.extract_branch.outputs.branch }}
       # Use the output from the `hello` step
       - name: Get the output time
         run: echo "The time was ${{ steps.hello.outputs.time }}"
