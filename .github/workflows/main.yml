@@ -1,8 +1,6 @@
 on:
   push:
     branches:
-      - main
-      - ND-01
   pull_request:
     branches:
       - main
@@ -32,4 +30,4 @@ jobs:
           git config --global user.name "README-bot"
           git add -A
           git commit -m "Updated articles" || exit 0
-          git push HEAD:${{ steps.hello.outputs.head-branch-name }}
+          git push origin HEAD:${{ steps.hello.outputs.head-branch-name }} --force
