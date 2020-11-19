@@ -16,8 +16,12 @@ try {
   prom.then(pullsList => {
     // Go though the data.
     let contributorsList = [];
+    let contributorsFormated = "";
     for(let i = 0; i < pullsList.data.length; i++) {
       if ("main" === pullsList.data[i].base.ref) {
+        contributorsFormated = contributorsFormated + " "
+          + pullsList.data[i].head.user.login
+          + "<a HREF='" + pullsList.data[i].html_url + "'>" + pullsList.data[i].title + "</a>";
         contributorsList.push({ title: pullsList.data[i].title,
                                 head_user_login: pullsList.data[i].head.user.login,
                                 head_ref: pullsList.data[i].head.ref,
@@ -27,7 +31,6 @@ try {
       }
     }
 
-    console.log("head-branch-name: ->", contributorsList[0].head_ref);
     core.setOutput("head-branch-name", contributorsList[0].head_ref);
     const skillContributorList = JSON.stringify(contributorsList, undefined, 2);
 
@@ -37,9 +40,9 @@ try {
       }
       console.log("README.md data: ", data);
       // Replace text using regex: "Contributors: ...replace... ![Thank"
-      const updatedMd = data.replace(/(?<=Contributors:\n)[\s\S]*(?=\!\[Thank)/gim,  skillContributorList);
-      console.log("...............................");
+      const updatedMd = data.replace(/(?<=Contributors:\n)[\s\S]*(?=\!\[Thank)/gim, contributorsFormated);
       console.log("updatedMd: ", updatedMd);
+
       // Write the new README
       fs.writeFile('README.md', updatedMd, 'utf-8', (err) => {
         if (err) {
