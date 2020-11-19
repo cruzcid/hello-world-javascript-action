@@ -19,9 +19,9 @@ try {
     let contributorsFormated = "";
     for(let i = 0; i < pullsList.data.length; i++) {
       if ("main" === pullsList.data[i].base.ref) {
-        contributorsFormated = contributorsFormated + " "
+        contributorsFormated = contributorsFormated + "\ -"
           + pullsList.data[i].head.user.login
-          + "<a HREF='" + pullsList.data[i].html_url + "'>" + pullsList.data[i].title + "</a>";
+          + " <a HREF='" + pullsList.data[i].html_url + "'>" + pullsList.data[i].title + "</a>";
         contributorsList.push({ title: pullsList.data[i].title,
                                 head_user_login: pullsList.data[i].head.user.login,
                                 head_ref: pullsList.data[i].head.ref,
