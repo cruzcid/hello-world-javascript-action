@@ -57,4 +57,5 @@ with:
     "base_ref": "main",
     "html_url": "https://github.com/cruzcid/hello-world-javascript-action/pull/3"
   }
-]\n![Thank you
+]
+![Thank you
