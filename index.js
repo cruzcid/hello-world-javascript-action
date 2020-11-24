@@ -39,8 +39,8 @@ try {
         throw err;
       }
       console.log("README.md data: ", data);
-      // Replace text using regex: "Contributors: ...replace... ![Thank"
-      const updatedMd = data.replace(/(?<=Contributors:\n)[\s\S]*(?=\n\!\[Thank)/gim, contributorsFormated);
+      // Replace text using regex: "Contributors: ...replace... ![Thank"       const updatedMd = data.replace(/(?<=Contributors:\n)[\s\S]*(?=\n\!\[Thank)/gim, contributorsFormated);
+      const updatedMd = data.replace(/(?<=Contributors:\n)[\s\S]*/gim, contributorsFormated);
       console.log("updatedMd: ", updatedMd);
 
       // Write the new README
